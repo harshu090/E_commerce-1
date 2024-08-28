@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Family Zone</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .auth-form {
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .auth-form h2 {
+            margin-bottom: 20px;
+        }
+        .auth-form .form-group {
+            margin-bottom: 15px;
+        }
+        .auth-form .btn {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <div class="company"></div>
+            <h3>Family Zone</h3>
+        </a>
+        <div class="products">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="auth.html">Login / Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container auth-container">
+        <div class="auth-form">
+            <h2>Login</h2>
+            <form action="login_process.php" method="post">
+                <div class="form-group">
+                    <label for="loginEmail">Email address</label>
+                    <input type="email" class="form-control" id="loginEmail" name="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+
+        <div class="auth-form">
+            <h2>Register</h2>
+            <form action="registration_process.php" method="post">
+                <div class="form-group">
+                    <label for="registerName">Name</label>
+                    <input type="text" class="form-control" id="registerName" name="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email address</label>
+                    <input type="email" class="form-control" id="registerEmail" name="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" class="form-control" id="registerPassword" name="registerPassword" required>
+                </div>
+                <button type="submit" class="btn btn-success">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <p>&copy; 2024 Family Zone. All rights reserved.</p>
+        <div class="col-md-2">
+            <h4>About</h4>
+            <a href="about.html">About us</a>
+            <a href="#">Delivery information</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms and conditions</a>
+            <a href="contact.html">Contact us</a>
+        </div>
+        <div class="col-md-2">
+            <h4>My Account</h4>
+            <a href="auth.html">Sign in / Register</a>
+            <a href="cart.html">View cart</a>
+            <a href="#">My wishlist</a>
+            <a href="#">Track my order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+                <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            </div>
+            <div class="icon">
+                <a href="https://snapchat.com" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
+            </div>
+            <div class="icon">
+                <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
