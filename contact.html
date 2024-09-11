@@ -9,6 +9,181 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 </head>
+<style>/* Basic Reset and Global Styles */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #f4f4f4;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+        margin-bottom: 20px;
+    }
+    
+    .navbar-brand h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #007bff;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #e9ecef;
+        border-radius: 4px;
+    }
+    
+    /* Contact Information Styles */
+    .col-md-6 h3 {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-info i {
+        margin-right: 10px;
+        color: #007bff;
+        font-size: 1.2rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Form Styles */
+    .form-group label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        box-shadow: none;
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        color: #fff;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Footer Styles */
+    .footer {
+        background-color: #f8f9fa;
+        padding: 40px 20px;
+        color: #333;
+    }
+    
+    .footer p {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 0.875rem;
+    }
+    
+    .footer h4 {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+        color: #007bff;
+    }
+    
+    .footer a {
+        display: block;
+        color: #333;
+        font-size: 0.875rem;
+        margin-bottom: 5px;
+    }
+    
+    .footer a:hover {
+        color: #007bff;
+    }
+    
+    .footer .row {
+        margin:  auto;
+        max-width: 10000px;
+        padding: 20 25px;
+    }
+    
+    .footer .col-md-2 {
+        margin-bottom: 20px;
+    }
+    
+    .footer .follow {
+        text-align: flex;
+        margin-top: 40px;
+    }
+    
+    .footer .icon {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 24px;
+    }
+    
+    .footer .icon i {
+        color: #333;
+    }
+    
+    /* Map Container Styles */
+    .map-container {
+        margin-top: 20px;
+    }
+    
+    .map-container iframe {
+        border: none;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 767.98px) {
+        .footer .row {
+            text-align: center;
+        }
+        
+        .footer .col-md-2 {
+            margin-bottom: 20px;
+        }
+        
+        .footer .icon {
+            margin: 0 5px;
+            font-size: 20px;
+        }
+        
+        .map-container iframe {
+            height: 300px; /* Adjust height for smaller screens */
+        }
+    }
+    </style>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,10 +202,6 @@
                     <a class="nav-link" href="cart.html"><i class="fa fa-shopping-bag"></i></a>
                 </li>
             </ul>
-            <form class="form-inline ml-auto" action="search_results.html" method="GET">
-                <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>
 
@@ -39,10 +210,10 @@
         <div class="row">
             <div class="col-md-6">
                 <h3>Contact Information</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Address: 6-60, uppal, hyderbad </p>
-                <p><i class="fas fa-phone"></i> Phone:9553589984</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: 6-60, Uppal, Hyderabad</p>
+                <p><i class="fas fa-phone"></i> Phone: 9553589984</p>
                 <p><i class="fas fa-envelope"></i> Email: info@familyzone.com</p>
-                <p><i class="fas fa-clock"></i> Hours: Mon - sun, 24/7</p>
+                <p><i class="fas fa-clock"></i> Hours: Mon - Sun, 24/7</p>
             </div>
             <div class="col-md-6">
                 <h3>Send Us a Message</h3>
@@ -68,23 +239,19 @@
     <footer class="footer mt-5">
         <p>&copy; 2024 Family Zone. All rights reserved.</p>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <h4>About</h4>
                 <a href="#">About us</a>
-                <a href="#">Delivery information</a>
-                <a href="#">Privacy policy</a>
                 <a href="#">Terms and conditions</a>
                 <a href="#">Contact us</a>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <h4>My Account</h4>
                 <a href="#">Sign in</a>
                 <a href="#">View cart</a>
-                <a href="#">My wishlist</a>
-                <a href="#">Track my order</a>
                 <a href="#">Help</a>
             </div>
-            <div class="follow">
+            <div class="col-md-4 follow">
                 <h4>Follow us</h4>
                 <div class="icon">
                     <i class="fa-brands fa-square-facebook"></i>
@@ -97,6 +264,15 @@
                 </div>
             </div>
         </div>
+        <section class="map mt-4">
+            <h2>Our Location</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.107256097057!2d78.5632421!3d17.7357547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf54edc5bb81%3A0xfecf17ef1d0b40af!2sHanumakonda%2C%20Warangal%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sin!4v1694069506688!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

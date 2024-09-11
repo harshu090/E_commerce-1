@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <script>
+        // Function to add an item to the cart
+        function addToCart(name, price) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert('Item added to cart!');
+        }
+    </script>
+</head>
+<body>
+    <h1>Product List</h1>
+    <div>
+        <h2>Product 1</h2>
+        <p>Price: $29.99</p>
+        <button onclick="addToCart('Product 1', 29.99)">Add to Cart</button>
+    </div>
+    <div>
+        <h2>Product 2</h2>
+        <p>Price: $39.99</p>
+        <button onclick="addToCart('Product 2', 39.99)">Add to Cart</button>
+    </div>
+    <!-- More products -->
+</body>
+</html>

@@ -7,6 +7,30 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <style>
+        .product-details {
+            scroll-margin-top: 80px; /* Adjust based on your navbar height */
+        }
+        .product-gallery img {
+            width: 100%;
+            height: auto;
+        }
+        .additional-images img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .additional-images img:hover {
+            opacity: 0.7;
+        }
+        @media (max-width: 768px) {
+            .product-gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -14,6 +38,9 @@
         <a class="navbar-brand" href="#">
             <h3>Family Zone</h3>
         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -22,7 +49,7 @@
                 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                    <a class="nav-link" href="cart.html" aria-label="View Cart"><i class="fa fa-shopping-bag"></i></a>
                 </li>
             </ul>
             <form class="form-inline ml-auto" action="search_results.html" method="GET">
@@ -32,17 +59,35 @@
         </div>
     </nav>
 
-    <!-- Product Details -->
-    <div class="container mt-5">
+    <div id="productDetails" class="container mt-5 product-details">
         <div class="row">
-            <div class="col-md-6">
-                <img src="./accesses/family dress - Copy.webp" class="img-fluid" alt="Family Dress">
+            <!-- First Product -->
+            <div class="col-md-6 product-gallery">
+                <!-- Main product image -->
+                <img id="mainImage1" src="./accesses/family dress - Copy.webp" class="img-fluid" alt="Family Dress">
+
+                
             </div>
             <div class="col-md-6">
                 <h1>Matching Set Kurta</h1>
                 <p><strong>Description:</strong> This elegant matching set kurta is perfect for family gatherings. Made from high-quality fabric, it ensures comfort and style.</p>
-                <p><strong>Price:</strong> $99.99</p>
-                <button class="btn btn-primary mt-3">Add to Cart</button>
+                <p><strong>Price:</strong>2000.00$</p>
+                <button class="btn btn-primary mt-3" data-product-id="12345">Add to Cart</button>
+                <button class="btn btn-success mt-3">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <!-- Second Product -->
+            <div class="col-md-6 product-gallery">
+                <!-- Main product image -->
+                <img id="mainImage2" src="./accesses/family dress-2.webp" class="img-fluid" alt="Boys Kids Dress">
+            </div>
+            <div class="col-md-6">
+                <h1>Jacket Family Set</h1>
+                <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+                <p><strong>Price:</strong> 1000.00$</p>
+                <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
                 <button class="btn btn-success mt-3">Buy Now</button>
             </div>
         </div>
@@ -55,25 +100,25 @@
             <div class="row">
                 <div class="col-md-2">
                     <h4>About</h4>
-                    <a href="#">About us</a>
-                    <a href="#">Delivery information</a>
-                    <a href="#">Privacy policy</a>
-                    <a href="#">Terms and conditions</a>
+                    <a href="#">About us</a><br>
+                    <a href="#">Delivery information</a><br>
+                    <a href="#">Privacy policy</a><br>
+                    <a href="#">Terms and conditions</a><br>
                     <a href="#">Contact us</a>
                 </div>
                 <div class="col-md-2">
                     <h4>My Account</h4>
-                    <a href="#">Sign in</a>
-                    <a href="#">View cart</a>
-                    <a href="#">My wishlist</a>
-                    <a href="#">Track my order</a>
+                    <a href="#">Sign in</a><br>
+                    <a href="#">View cart</a><br>
+                    <a href="#">My wishlist</a><br>
+                    <a href="#">Track my order</a><br>
                     <a href="#">Help</a>
                 </div>
                 <div class="col-md-4">
                     <h4>Follow us</h4>
-                    <a href="#"><i class="fa-brands fa-square-facebook"></i> Facebook</a>
-                    <a href="#"><i class="fa-brands fa-square-snapchat"></i> Snapchat</a>
-                    <a href="#"><i class="fa-brands fa-square-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-facebook-square"></i> Facebook</a><br>
+                    <a href="#"><i class="fab fa-snapchat-square"></i> Snapchat</a><br>
+                    <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
                 </div>
             </div>
         </div>
@@ -82,5 +127,24 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript for handling additional image clicks
+        document.querySelectorAll('.additional-images img').forEach(img => {
+            img.addEventListener('click', function() {
+                const mainImage = this.closest('.product-gallery').querySelector('img');
+                const newSrc = this.getAttribute('data-image-src');
+                mainImage.setAttribute('src', newSrc);
+            });
+        });
+
+        // JavaScript for Add to Cart button
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                // Simulate adding to cart (replace with actual implementation)
+                alert(`Added product ID ${productId} to cart.`);
+            });
+        });
+    </script>
 </body>
 </html>

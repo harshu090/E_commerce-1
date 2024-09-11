@@ -1,79 +1,47 @@
-const express = require('express');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const path = require('path');
+// Function to add item to local storage
+function addToCart(image, title, price) {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const item = { image, title, price };
+    cartItems.push(item);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    alert('Item added to cart!');
+}
 
-const app = express();
-const PORT = 3000;
-
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true
-}));
-
-// Mock user database
-const users = {
-    'johndoe': 'password123'
-};
-
-// Routes
-app.get('/', (req, res) => {
-    if (req.session.username) {
-        res.redirect('/account');
-    } else {
-        res.redirect('/login');
-    }
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
-
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    if (users[username] === password) {
-        req.session.username = username;
-        res.redirect('/account');
-    } else {
-        res.send("Invalid credentials.");
-    }
-});
-
-app.get('/account', (req, res) => {
-    if (!req.session.username) {
-        res.redirect('/login');
-    } else {
-        const userProfile = {
-            name: 'John Doe',
-            email: 'johndoe@example.com',
-            phone: '(123) 456-7890',
-            profilePic: '/images/default-profile-pic.png'
-        };
-        res.render('account', { profile: userProfile });
-    }
-});
-
-app.post('/account', (req, res) => {
-    // Handle profile update
-    res.redirect('/account');
-});
-
-app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect('/login');
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const button = document.getElementById('myButton');
+// Adding event listeners to "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        alert('Button clicked!');
+        const image = this.getAttribute('data-product-image');
+        const title = this.getAttribute('data-product-title');
+        const price = this.getAttribute('data-product-price');
+        addToCart(image, title, price);
     });
 });
 
+// Function to display cart items
+function displayCart() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const cartContainer = document.querySelector('.cart-container');
+
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+    }
+
+    cartItems.forEach(item => {
+        const cartItemHtml = `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.title}">
+                <div class="cart-item-details">
+                    <span>${item.title}</span>
+                    <span class="cart-item-price">$${item.price}</span>
+                </div>
+            </div>
+        `;
+        cartContainer.innerHTML += cartItemHtml;
+    });
+}
+
+// Display cart items on page load if the cart page is being viewed
+if (window.location.pathname.includes('cart.html')) {
+    displayCart();
+}

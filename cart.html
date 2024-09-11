@@ -4,37 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Family Zone</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <title>Shopping Cart</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container for the cart */
+        .cart-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        /* Heading */
+        .cart-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Table styling */
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th,
+        .cart-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .cart-table th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .cart-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .cart-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Input field styling */
+        .cart-table input[type="number"] {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Button styling */
+        .cart-table button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-table button:hover {
+            background-color: #c0392b;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2ecc71;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none; /* Ensure link styles are removed */
+        }
+
+        .checkout-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <div class="company"></div>
-            <h3>Family Zone</h3>
-        </a>
-        <div class="products">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container my-5">
-        <h1 class="text-center">Your Cart</h1>
-        <table class="table table-bordered">
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <table class="cart-table">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Image</th>
+                    <th>Item</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -42,65 +115,76 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example product row -->
                 <tr>
-                    <td>Matching Kurta Jacket</td>
-                    <td><img src="./accesses/family dress-5.webp" class="img-fluid" alt="Matching Kurta Jacket" style="width: 100px;"></td>
-                    <td>$50.00</td>
-                    <td>
-                        <input type="number" class="form-control" value="1" min="1">
-                    </td>
-                    <td>$50.00</td>
-                    <td><button class="btn btn-danger">Remove</button></td>
+                    <td>Item 1</td>
+                    <td>10.00</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>10.00</td>
+                    <td><button>Remove</button></td>
                 </tr>
-                <!-- Repeat rows for each item in the cart -->
+                <tr>
+                    <td>Item 2</td>
+                    <td>20.00</td>
+                    <td><input type="number" value="2" min="1"></td>
+                    <td>40.00</td>
+                    <td><button>Remove</button></td>
+                </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Grand Total</td>
+                    <td colspan="2">50.00</td>
+                </tr>
+            </tfoot>
         </table>
-
-        <div class="row">
-            <div class="col-md-6">
-                <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
-            </div>
-            <div class="col-md-6 text-right">
-                <h3>Total: $50.00</h3>
-                <a href="checkout.html" class="btn btn-success">Checkout</a>
-            </div>
-        </div>
+        <a href="checkout.html" class="checkout-btn">Checkout</a>
     </div>
 
-    <footer class="footer mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h4>About</h4>
-                    <a href="#">About us</a><br>
-                    <a href="#">Delivery information</a><br>
-                    <a href="#">Privacy policy</a><br>
-                    <a href="#">Terms and conditions</a><br>
-                    <a href="#">Contact us</a>
-                </div>
-                <div class="col-md-3">
-                    <h4>My Account</h4>
-                    <a href="#">Sign in</a><br>
-                    <a href="#">View cart</a><br>
-                    <a href="#">My wishlist</a><br>
-                    <a href="#">Track my order</a><br>
-                    <a href="#">Help</a>
-                </div>
-                <div class="col-md-6">
-                    <h4>Follow Us</h4>
-                    <a href="#"><i class="fa-brands fa-facebook-square"></i> Facebook</a><br>
-                    <a href="#"><i class="fa-brands fa-snapchat-square"></i> Snapchat</a><br>
-                    <a href="#"><i class="fa-brands fa-instagram-square"></i> Instagram</a>
-                </div>
-            </div>
-            <p class="text-center mt-4">&copy; 2024 Family Zone. All rights reserved.</p>
-        </div>
-    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartTable = document.querySelector('.cart-table');
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            // Function to update the total price of each row
+            function updateRowTotal(row) {
+                const price = parseFloat(row.querySelector('td:nth-child(2)').textContent);
+                const quantity = parseInt(row.querySelector('input[type="number"]').value, 10);
+                const totalCell = row.querySelector('td:nth-child(4)');
+                const total = price * quantity;
+                totalCell.textContent = total.toFixed(2);
+            }
+
+            // Function to update the cart total
+            function updateCartTotal() {
+                let grandTotal = 0;
+                document.querySelectorAll('.cart-table tbody tr').forEach(row => {
+                    const rowTotal = parseFloat(row.querySelector('td:nth-child(4)').textContent) || 0;
+                    grandTotal += rowTotal;
+                });
+                const footerTotal = document.querySelector('.cart-table tfoot td:nth-child(2)');
+                footerTotal.textContent = grandTotal.toFixed(2);
+            }
+
+            // Event delegation for quantity changes and item removal
+            cartTable.addEventListener('input', (event) => {
+                if (event.target.type === 'number') {
+                    const row = event.target.closest('tr');
+                    updateRowTotal(row);
+                    updateCartTotal();
+                }
+            });
+
+            cartTable.addEventListener('click', (event) => {
+                if (event.target.tagName === 'BUTTON' && event.target.textContent === 'Remove') {
+                    const row = event.target.closest('tr');
+                    row.remove();
+                    updateCartTotal();
+                }
+            });
+
+            // Initial update of cart totals
+            updateCartTotal();
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <style>
+        .profile-header {
+            text-align: center;
+            position: relative;
+        }
+        .profile-header img {
+            width: 150px;
+            height: 150px;
+        }
+        .edit-img-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <h3>Family Zone</h3>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle">
+                    <button class="edit-img-btn" onclick="document.getElementById('file-input').click();">
+                        <i class="fa fa-camera"></i>
+                    </button>
+                    <input type="file" id="file-input" style="display:none;" onchange="previewImage(event)">
+                    <h2>John Doe</h2>
+                    <p class="text-muted">john.doe@example.com</p>
+                </div>
+                <div class="profile-actions mt-3">
+                    <a href="edit_profile.html" class="btn btn-primary">Edit Profile</a>
+                    <a href="order_history.html" class="btn btn-secondary">Order History</a>
+                    <a href="logout.html" class="btn btn-danger mt-3">Logout</a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="profile-info">
+                    <h3>Profile Information</h3>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Full Name:</th>
+                                <td>John Doe</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>john.doe@example.com</td>
+                            </tr>
+                            <tr>
+                                <th>Phone:</th>
+                                <td>(123) 456-7890</td>
+                            </tr>
+                            <tr>
+                                <th>Address:</th>
+                                <td>1234 Elm Street, Springfield</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 Family Zone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function previewImage(event) {
+            const output = document.querySelector('.profile-header img');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+    <script>
+    function previewImage(event) {
+        const output = document.querySelector('.profile-header');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+<script>
+        function previewImage(event) {
+            const output = document.querySelector('.profile');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+    <script src="server.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
