@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Checkout page for Family Zone">
+    <meta name="description" content="Family Zone Checkout Page">
     <title>Checkout - Family Zone</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="index.html">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="payment-method">Payment Method</label>
-                <select class="form-control" id="payment-method">
+                <select class="form-control" id="payment-method" required>
                     <option value="credit-card">Credit Card</option>
                     <option value="paypal">Phonepay</option>
                 </select>
@@ -40,5 +39,18 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var paymentMethod = document.getElementById('payment-method').value;
+
+            if (paymentMethod === 'credit-card') {
+                window.location.href = 'card.html'; // Redirect to credit card page
+            } else if (paymentMethod === 'paypal') {
+                window.location.href = 'phonepay.html'; // Redirect to Phonepay page
+            }
+        });
+    </script>
 </body>
 </html>

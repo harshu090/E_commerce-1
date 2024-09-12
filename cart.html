@@ -98,6 +98,21 @@
         .checkout-btn:hover {
             background-color: #27ae60;
         }
+
+        /* Image styling */
+        .cart-table img {
+            width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Description styling */
+        .item-description {
+            text-align: left;
+            font-size: 14px;
+            color: #666;
+        }
     </style>
 </head>
 
@@ -107,7 +122,9 @@
         <table class="cart-table">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Item</th>
+                    <th>Description</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -116,24 +133,64 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Item 1</td>
-                    <td>10.00</td>
+                    <td><img src="./accesses/family dress - Copy.webp" alt="Item 1"></td>
+                    <td>matching set</td>
+                    <td class="item-description">family combo.</td>
+                    <td>$1000.00</td>
                     <td><input type="number" value="1" min="1"></td>
-                    <td>10.00</td>
+                    <td>$1000.00</td>
                     <td><button>Remove</button></td>
                 </tr>
                 <tr>
-                    <td>Item 2</td>
-                    <td>20.00</td>
-                    <td><input type="number" value="2" min="1"></td>
-                    <td>40.00</td>
+                    <td><img src="./accesses/family dress-2.webp" alt="Item 2"></td>
+                    <td>FAMILY Combo</td>
+                    <td class="item-description">family Combo.</td>
+                    <td>$2000.00</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$2000.00</td>
+                    <td><button>Remove</button></td>
+                </tr>
+                <tr>
+                    <td><img src="./accesses/family dress-3.webp" alt="Item 3"></td>
+                    <td>family set</td>
+                    <td class="item-description">family Combo.</td>
+                    <td>$4000.00</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$4000.00</td>
+                    <td><button>Remove</button></td>
+                </tr>
+                <tr>
+                    <td><img src="./accesses/family dress-4.webp" alt="Item 4"></td>
+                    <td>set of combo</td>
+                    <td class="item-description">family Combo.</td>
+                    <td>$4000.00</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$4000.00</td>
+                    <td><button>Remove</button></td>
+                </tr>
+                <tr>
+                    <td><img src="./accesses/family dress-5.webp" alt="Item 5"></td>
+                    <td>combo Set</td>
+                    <td class="item-description">family combo.</td>
+                    <td>$5000.00</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$5000.00</td>
+                    <td><button>Remove</button></td>
+                </tr>
+                <tr>
+                    <td><img src="./accesses/family dress-8.webp" alt="Item 6"></td>
+                    <td>family set</td>
+                    <td class="item-description">family Combo</td>
+                    <td>$2000.00</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$2000.00</td>
                     <td><button>Remove</button></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3">Grand Total</td>
-                    <td colspan="2">50.00</td>
+                    <td colspan="5">Grand Total</td>
+                    <td colspan="2">$30,000.00</td> <!-- Initial total, will be updated dynamically -->
                 </tr>
             </tfoot>
         </table>
@@ -146,22 +203,22 @@
 
             // Function to update the total price of each row
             function updateRowTotal(row) {
-                const price = parseFloat(row.querySelector('td:nth-child(2)').textContent);
+                const price = parseFloat(row.querySelector('td:nth-child(4)').textContent.replace('$', ''));
                 const quantity = parseInt(row.querySelector('input[type="number"]').value, 10);
-                const totalCell = row.querySelector('td:nth-child(4)');
+                const totalCell = row.querySelector('td:nth-child(6)');
                 const total = price * quantity;
-                totalCell.textContent = total.toFixed(2);
+                totalCell.textContent = `$${total.toFixed(2)}`;
             }
 
             // Function to update the cart total
             function updateCartTotal() {
                 let grandTotal = 0;
                 document.querySelectorAll('.cart-table tbody tr').forEach(row => {
-                    const rowTotal = parseFloat(row.querySelector('td:nth-child(4)').textContent) || 0;
+                    const rowTotal = parseFloat(row.querySelector('td:nth-child(6)').textContent.replace('$', '')) || 0;
                     grandTotal += rowTotal;
                 });
                 const footerTotal = document.querySelector('.cart-table tfoot td:nth-child(2)');
-                footerTotal.textContent = grandTotal.toFixed(2);
+                footerTotal.textContent = `$${grandTotal.toFixed(2)}`;
             }
 
             // Event delegation for quantity changes and item removal

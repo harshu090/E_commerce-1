@@ -8,28 +8,135 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <style>
-        .product-details {
-            scroll-margin-top: 80px; /* Adjust based on your navbar height */
-        }
-        .product-gallery img {
-            width: 100%;
-            height: auto;
-        }
-        .additional-images img {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-        .additional-images img:hover {
-            opacity: 0.7;
-        }
-        @media (max-width: 768px) {
-            .product-gallery img {
-                width: 100%;
-                height: auto;
-            }
-        }
+       /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar-brand h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.product-details {
+    margin-top: 20px;
+}
+
+.product-gallery img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.col-md-6 {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    color: #6c757d;
+}
+
+.footer h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .row {
+    margin-bottom: 20px;
+}
+
+.footer .col-md-2, .footer .col-md-4 {
+    margin-bottom: 20px;
+}
+
+.footer .fab {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer .row {
+        margin-bottom: 0;
+    }
+
+    .footer .col-md-2, .footer .col-md-4 {
+        margin-bottom: 10px;
+    }
+}
+
+.product-gallery img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    image-resolution: 0;
+}
+
+.product-gallery img:hover {
+    opacity: 0.7;
+}
+
+
     </style>
 </head>
 <body>
@@ -92,7 +199,214 @@
             </div>
         </div>
     </div>
+    
+   
+    <div class="col-md-6 product-gallery">
+        <!-- Main product image -->
+        <img id="mainImage3" src="./accesses/family dress-3.webp"  class="img-fluid" alt="Boys Kids Dress">
+    </div>
+    <div class="col-md-6">
+        <h1>Jacket Family Set</h1>
+        <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+        <p><strong>Price:</strong> 1000.00$</p>
+        <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+        <button class="btn btn-success mt-3">Buy Now</button>
+    </div>
+</div>
 
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage4" src="./accesses/family dress-4.webp" class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage5" src="./accesses/family dress-5.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage6" src="./accesses/family dress-8.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage7" src="./accesses/family dress-8.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage8" src="./accesses/NEW ARRIVAL.3.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage9" src="./accesses/NEW ARRIVAL.4.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage10" src="./accesses/new -6.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage11" src="./accesses/new-7.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+    <!-- Main product image -->
+    <img id="mainImage12" src="./accesses/new -9.jpg"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+
+<div class="col-md-6 product-gallery">
+
+    <img id="mainImage13" src="./accesses/c-1.jpeg"   class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+   
+    <img id="mainImage14" src="./accesses/c-2.jpg"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+<div class="row mt-5"></div>
+<div class="col-md-6 product-gallery">
+
+    <img id="mainImage15" src="./accesses/c-3.jpg"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+
+<div class="col-md-6 product-gallery">
+ 
+    <img id="mainImage16" src="./accesses/c-4.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
+
+<div class="col-md-6 product-gallery">
+
+    <img id="mainImage17" src="./accesses/c-5.jpg"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+
+<div class="col-md-6 product-gallery">
+ 
+    <img id="mainImage18" src="./accesses/family dress-3.webp"  class="img-fluid" alt="Boys Kids Dress">
+</div>
+<div class="col-md-6">
+    <h1>Jacket Family Set</h1>
+    <p><strong>Description:</strong> Perfect for any family event, this jacket set ensures comfort and style and high-quality fabric it comfort and style.</p>
+    <p><strong>Price:</strong> 1000.00$</p>
+    <button class="btn btn-primary mt-3" data-product-id="67890">Add to Cart</button>
+    <button class="btn btn-success mt-3">Buy Now</button>
+</div>
+</div>
     <!-- Footer -->
     <footer class="footer mt-5">
         <div class="container">

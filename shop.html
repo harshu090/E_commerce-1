@@ -43,6 +43,11 @@
         .section-p1 {
             padding: 20px 0;
         }
+        .prodetail single-pro-image{
+           width: 40px;
+           margin-right: 50px;
+
+}
     </style>
 </head>
 
@@ -53,13 +58,15 @@
             <h3>Family Zone</h3>
         </a>
         <div class="products">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -70,8 +77,8 @@
         <section id="featured" class="section-p1">
             <h2>Featured Products</h2>
             <div class="row">
-                <!-- Example product card -->
-                <div class="col-md-2 product-card">
+             
+              <div class="col-md-2 product-card">
                     <img src="./accesses/family dress - Copy.webp" alt="Family Dress">
                     <h5 class="card-title">Matching Set Kurta</h5>
                     <p class="card-text">$50.00</p>
@@ -112,6 +119,12 @@
                 </div>
             </div>
         </section>
+
+            <section  id="prodetail" class="section-p1">
+                <div class="single-pro-image">
+                    <img src="./accesses/Family zone - Copy.png" width="100" id="mainimg" alt="">
+                </div>
+            </section>
 
         <section id="new-arrivals" class="section-p1">
             <h2>New Arrivals</h2>
@@ -237,6 +250,44 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Function to add item to local storage
+    function addToCart(image, title, price) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const item = { image, title, price };
+        cartItems.push(item);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+
+    // Add event listeners to "Add to Cart" buttons
+    document.querySelectorAll('.btn-success').forEach(button => {
+        button.addEventListener('click', function() {
+            const image = this.closest('.product-card').querySelector('img').src;
+            const title = this.closest('.product-card').querySelector('.card-title').innerText;
+            const price = this.closest('.product-card').querySelector('.card-text').innerText;
+            addToCart(image, title, price);
+        });
+    });
+
+    // Add event listeners to "View Details" buttons
+    document.querySelectorAll('.view-details').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const image = this.getAttribute('data-product-image');
+            const title = this.getAttribute('data-product-title');
+            const price = this.getAttribute('data-product-price');
+            
+            // Redirect to details.html with URL parameters
+            window.location.href = 'details.html';
+        });
+    });
+</script>
+
+        
+    
+</body>
+
+</html></script>
 </body>
 
 </html>

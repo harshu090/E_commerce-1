@@ -8,7 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                 </li>
             </ul>
             <form class="form-inline ml-auto" action="search_results.html" method="GET">
-                <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search" required>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h4>Order Summary</h4>
-                <table class="table table-bordered">
+                <table class="table table-bordered cart-table">
                     <thead>
                         <tr>
                             <th>Product</th>
@@ -58,141 +58,112 @@
                         <!-- Example Order Items -->
                         <tr>
                             <td>Matching Kurta Jacket</td>
-                            <td>2</td>
-                            <td>$50.00</td>
-                            <td>$100.00</td>
+                            <td><input type="number" value="1" min="1" class="quantity-input"></td>
+                            <td>$1000.00</td>
+                            <td class="row-total">$1000.00</td>
                         </tr>
                         <tr>
                             <td>Jacket Family Set</td>
-                            <td>1</td>
-                            <td>$60.00</td>
-                            <td>$60.00</td>
+                            <td><input type="number" value="1" min="1" class="quantity-input"></td>
+                            <td>$6000.00</td>
+                            <td class="row-total">$6000.00</td>
                         </tr>
                         <tr>
                             <td>Patti Gown</td>
-                            <td>1</td>
-                            <td>$70.00</td>
-                            <td>$70.00</td>
+                            <td><input type="number" value="1" min="1" class="quantity-input"></td>
+                            <td>$7000.00</td>
+                            <td class="row-total">$7000.00</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <th colspan="3" class="text-right">Subtotal:</th>
-                            <th>$230.00</th>
+                            <th id="subtotal">$14000.00</th>
                         </tr>
                         <tr>
                             <th colspan="3" class="text-right">Shipping:</th>
-                            <th>$10.00</th>
+                            <th id="shipping">$1000.00</th>
                         </tr>
                         <tr>
                             <th colspan="3" class="text-right">Total:</th>
-                            <th>$240.00</th>
+                            <th id="total">$15000.00</th>
+                        </tr>
+                        <tr>
+                            <th colspan="3" class="text-right">Grand Total:</th>
+                            <th id="grand-total">$15000.00</th>
                         </tr>
                     </tfoot>
                 </table>
-            </div>
-
-            <!-- Shipping Information -->
-            <div class="col-md-4">
-                <h4>Shipping Information</h4>
-                <form id="shipping-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="1234 Elm Street">
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="Anytown">
-                    </div>
-                    <div class="form-group">
-                        <label for="state">State</label>
-                        <input type="text" class="form-control" id="state" placeholder="CA">
-                    </div>
-                    <div class="form-group">
-                        <label for="zip">ZIP Code</label>
-                        <input type="text" class="form-control" id="zip" placeholder="90210">
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <input type="text" class="form-control" id="country" placeholder="USA">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update Shipping Information</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Payment Information -->
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <h4>Payment Information</h4>
-                <form id="payment-form">
-                    <div class="form-group">
-                        <label for="card-name">Name on Card</label>
-                        <input type="text" class="form-control" id="card-name" placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="card-number">Card Number</label>
-                        <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="expiry">Expiry Date</label>
-                            <input type="text" class="form-control" id="expiry" placeholder="MM/YY">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="cvv">CVV</label>
-                            <input type="text" class="form-control" id="cvv" placeholder="123">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit Payment</button>
-                </form>
+                <button class="btn btn-primary" id="proceed-to-shipping">Proceed to Shipping Information</button>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer mt-5">
-        <p>&copy; 2024 Family Zone. All rights reserved.</p>
-        <div class="row">
-            <div class="col-md-2">
-                <h4>About</h4>
-                <a href="#">About us</a>
-                <a href="#">Delivery information</a>
-                <a href="#">Privacy policy</a>
-                <a href="#">Terms and conditions</a>
-                <a href="#">Contact us</a>
-            </div>
-            <div class="col-md-2">
-                <h4>My Account</h4>
-                <a href="#">Sign in</a>
-                <a href="#">View cart</a>
-                <a href="#">My wishlist</a>
-                <a href="#">Track my order</a>
-                <a href="#">Help</a>
-            </div>
-            <div class="col-md-2 follow">
-                <h4>Follow us</h4>
-                <div class="icon">
-                    <i class="fa-brands fa-square-facebook"></i>
-                </div>
-                <div class="icon">
-                    <i class="fa-brands fa-square-snapchat"></i>
-                </div>
-                <div class="icon">
-                    <i class="fa-brands fa-square-instagram"></i>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartTable = document.querySelector('.cart-table');
+            const proceedButton = document.getElementById('proceed-to-shipping');
 
+            function updateRowTotal(row) {
+                const price = parseFloat(row.querySelector('td:nth-child(3)').textContent.replace('$', ''));
+                const quantity = parseInt(row.querySelector('.quantity-input').value, 10);
+                const totalCell = row.querySelector('.row-total');
+                const total = price * quantity;
+                totalCell.textContent = `$${total.toFixed(2)}`;
+            }
+
+            function updateCartTotal() {
+                let subtotal = 0;
+                document.querySelectorAll('.row-total').forEach(cell => {
+                    subtotal += parseFloat(cell.textContent.replace('$', '')) || 0;
+                });
+                const shipping = 1000; // Fixed shipping cost
+                const total = subtotal + shipping;
+
+                document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
+                document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+                document.getElementById('grand-total').textContent = `$${total.toFixed(2)}`;
+            }
+
+            cartTable.addEventListener('input', (event) => {
+                if (event.target.classList.contains('quantity-input')) {
+                    const row = event.target.closest('tr');
+                    updateRowTotal(row);
+                    updateCartTotal();
+                }
+            });
+
+            proceedButton.addEventListener('click', () => {
+                // Save order details to local storage
+                const orderDetails = {
+                    subtotal: document.getElementById('subtotal').textContent,
+                    shipping: document.getElementById('shipping').textContent,
+                    total: document.getElementById('total').textContent,
+                    grandTotal: document.getElementById('grand-total').textContent,
+                    items: Array.from(document.querySelectorAll('.row-total')).map(row => ({
+                        product: row.parentElement.children[0].textContent,
+                        quantity: row.parentElement.querySelector('.quantity-input').value,
+                        price: row.parentElement.children[2].textContent,
+                        total: row.textContent
+                    }))
+                };
+
+                localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+
+                // Redirect to shipping information page
+                window.location.href = 'shipping.html';
+            });
+
+            updateCartTotal();
+        });
+    </script>
+
+    <!-- Bootstrap and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./js/main.js"></script>
 </body>
 
 </html>
