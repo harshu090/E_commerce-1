@@ -1,26 +1,23 @@
 <?php
 session_start();
-include 'db_connect.php'; // Include your database connection
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Retrieve form data
-    $fullName = $_POST['full_name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-    $userId = $_SESSION['user_id']; // Assume you store the user ID in session
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Sanitize and validate inputs
+    $full_name = htmlspecialchars($_POST['full_name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $address = htmlspecialchars($_POST['address']);
 
-    // Update profile in the database
-    $sql = "UPDATE users SET full_name=?, email=?, phone=?, address=? WHERE id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssi", $fullName, $email, $phone, $address, $userId);
+    // Save details to session
+    $_SESSION['user'] = [
+        'full_name' => $full_name,
+        'email' => $email,
+        'phone' => $phone,
+        'address' => $address,
+    ];
 
-    if ($stmt->execute()) {
-        // Redirect to the profile page to show updated data
-        header("Location: profile.php");
-        exit();
-    } else {
-        echo "Error updating profile: " . $stmt->error;
-    }
+    // Redirect to profile page with success message
+    header("Location: profile.html?status=success");
+    exit();
 }
 ?>

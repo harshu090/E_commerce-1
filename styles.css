@@ -12,54 +12,62 @@ body {
   color: #6a2c91;
 }
 
-/* Navbar Styling */
+/* Custom Navbar Styling */
 .navbar {
   width: 100%;
-  height: 100px;
-  background-color: #11208f;
+  height: 80px; /* Adjust as needed */
+  background-color: #11208f; /* Custom background color */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: #13035a;
+  padding: 0 20px; /* Custom padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
 .navbar .navbar-brand h3 {
-  color: #0b1495;
+  color: #091461; /* Brand name color */
+  margin: 0; /* Remove margin */
+  font-size: 24px; /* Font size */
+  font-weight: bold; /* Font weight */
 }
 
 .navbar .navbar-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center nav items */
 }
 
 .navbar .navbar-nav li {
-  margin: 0 10px;
+  margin: 0 15px; /* Spacing between items */
 }
 
 .navbar .navbar-nav li a {
-
-  font-size: 15px;
-  text-decoration: none;
-  color: #3a1186;
+  font-size: 16px; /* Font size for links */
+  text-decoration: none; /* Remove underline */
+  color: #f0f0f0; /* Link color */
+  font-weight: 500; /* Font weight */
 }
 
 .navbar .navbar-nav li a:hover {
-  border-bottom: 1px solid #17a2b8;
-  color: #0c1b5c;
+  border-bottom: 2px solid #17a2b8; /* Underline on hover */
+  color: #ffffff; /* Link color on hover */
 }
 
 .navbar .navbar-nav li i {
-  font-size: 12px;
-  margin-left: 10px;
+  font-size: 18px; /* Font size for icons */
+  margin-left: 10px; /* Spacing */
 }
 
 .navbar .navbar-nav li i:hover {
-  color: #4f0950;
-  cursor: pointer;
+  color: #4f0950; /* Icon color on hover */
+  cursor: pointer; /* Cursor style */
 }
+
 
 /* Jumbotron and Section Styling */
 .jumbotron img,
@@ -306,3 +314,10 @@ footer .col p {
 .mt-3 {
   margin-top: 1rem;
 }
+@media (max-width: 768px) {
+  .navbar-brand h3 {
+      font-size: 1.5rem;
+  }
+ 
+}
+

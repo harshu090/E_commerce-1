@@ -133,7 +133,7 @@
                     <img src="./accesses/NEW ARRIVAL.2.webp" alt="New Arrival 2">
                     <h5 class="card-title">Jacket New Arrival</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -141,7 +141,7 @@
                     <img src="./accesses/NEW ARRIVAL.3.webp" alt="New Arrival 3">
                     <h5 class="card-title">Gown New Arrival</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -149,7 +149,7 @@
                     <img src="./accesses/NEW ARRIVAL.4.webp" alt="New Arrival 4">
                     <h5 class="card-title">Kurta Jacket New</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -157,7 +157,7 @@
                     <img src="./accesses/new -6.webp" alt="New Arrival 5">
                     <h5 class="card-title">Embroidery New</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -165,7 +165,7 @@
                     <img src="./accesses/new-7.webp" alt="New Arrival 6">
                     <h5 class="card-title">Brand Clothes</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                     <img src="./accesses/c-1.jpeg" alt="Discount 1">
                     <h5 class="card-title">Matching Dress</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -186,7 +186,7 @@
                     <img src="./accesses/c-2.jpg" alt="Discount 2">
                     <h5 class="card-title">Jacket Couple Dress</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -194,7 +194,7 @@
                     <img src="./accesses/c-3.jpg" alt="Discount 3">
                     <h5 class="card-title">Gown Couple Dress</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -202,7 +202,7 @@
                     <img src="./accesses/c-4.webp" alt="Discount 4">
                     <h5 class="card-title">Kurta Pajama</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
 
@@ -210,7 +210,7 @@
                     <img src="./accesses/c-5.jpg" alt="Discount 5">
                     <h5 class="card-title">Kurta Couple Jacket</h5>
                     <p class="card-text">$70.00</p>
-                    <a href="product-details.html" class="btn btn-primary">View Details</a>
+                    <a href="details.html" class="btn btn-primary">View Details</a>
                     <button class="btn btn-success mt-2">Add to Cart</button>
                 </div>
             </div>
@@ -277,10 +277,23 @@
             const title = this.getAttribute('data-product-title');
             const price = this.getAttribute('data-product-price');
             
-            // Redirect to details.html with URL parameters
+          
             window.location.href = 'details.html';
         });
     });
+    document.querySelectorAll('.btn-primary').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const card = this.closest('.product-card');
+        const image = card.querySelector('img').src;
+        const title = card.querySelector('.card-title').innerText;
+        const price = card.querySelector('.card-text').innerText;
+
+        sessionStorage.setItem('productDetails', JSON.stringify({ image, title, price }));
+        window.location.href = 'details.html';
+    });
+});
+
 </script>
 
         
